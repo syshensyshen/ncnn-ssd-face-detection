@@ -5,4 +5,5 @@ this code implement Reference resources code: https://github.com/arlose/ncnn-mob
 
 detection as follows:
 
-https://github.com/syshensyshen/ncnn-ssd-face-detection/blob/master/result.png
+![Image text](https://github.com/syshensyshen/ncnn-ssd-face-detection/blob/master/result.png)
+
