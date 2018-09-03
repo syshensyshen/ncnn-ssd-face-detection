@@ -1,0 +1,171 @@
+7767517
+169 188
+Input            data             0 1 data 0=224 1=224 2=3
+Split            splitncnn_0      1 6 data data_splitncnn_0 data_splitncnn_1 data_splitncnn_2 data_splitncnn_3 data_splitncnn_4 data_splitncnn_5
+Convolution      conv1            1 1 data_splitncnn_5 conv1 0=32 1=3 2=1 3=2 4=1 5=0 6=864
+BatchNorm        conv1_bn         1 1 conv1 conv1_conv1_bn 0=32
+Scale            conv1_bns        1 1 conv1_conv1_bn conv1_conv1_bns 0=32 1=1
+ReLU             conv1_relu       1 1 conv1_conv1_bns conv1_conv1_relu
+ConvolutionDepthWise conv_dw_1        1 1 conv1_conv1_relu conv_dw_1 0=32 1=3 2=1 3=1 4=1 5=0 6=288 7=32
+BatchNorm        conv_dw_1_bn     1 1 conv_dw_1 conv_dw_1_conv_dw_1_bn 0=32
+Scale            conv_dw_1_bns    1 1 conv_dw_1_conv_dw_1_bn conv_dw_1_conv_dw_1_bns 0=32 1=1
+ReLU             conv_dw_1_relu   1 1 conv_dw_1_conv_dw_1_bns conv_dw_1_conv_dw_1_relu
+Convolution      conv_pw_1        1 1 conv_dw_1_conv_dw_1_relu conv_pw_1 0=64 1=1 2=1 3=1 4=0 5=0 6=2048
+BatchNorm        conv_pw_1_bn     1 1 conv_pw_1 conv_pw_1_conv_pw_1_bn 0=64
+Scale            conv_pw_1_bns    1 1 conv_pw_1_conv_pw_1_bn conv_pw_1_conv_pw_1_bns 0=64 1=1
+ReLU             conv_pw_1_relu   1 1 conv_pw_1_conv_pw_1_bns conv_pw_1_conv_pw_1_relu
+ConvolutionDepthWise conv_dw_2        1 1 conv_pw_1_conv_pw_1_relu conv_dw_2 0=64 1=3 2=1 3=2 4=1 5=0 6=576 7=64
+BatchNorm        conv_dw_2_bn     1 1 conv_dw_2 conv_dw_2_conv_dw_2_bn 0=64
+Scale            conv_dw_2_bns    1 1 conv_dw_2_conv_dw_2_bn conv_dw_2_conv_dw_2_bns 0=64 1=1
+ReLU             conv_dw_2_relu   1 1 conv_dw_2_conv_dw_2_bns conv_dw_2_conv_dw_2_relu
+Convolution      conv_pw_2        1 1 conv_dw_2_conv_dw_2_relu conv_pw_2 0=128 1=1 2=1 3=1 4=0 5=0 6=8192
+BatchNorm        conv_pw_2_bn     1 1 conv_pw_2 conv_pw_2_conv_pw_2_bn 0=128
+Scale            conv_pw_2_bns    1 1 conv_pw_2_conv_pw_2_bn conv_pw_2_conv_pw_2_bns 0=128 1=1
+ReLU             conv_pw_2_relu   1 1 conv_pw_2_conv_pw_2_bns conv_pw_2_conv_pw_2_relu
+ConvolutionDepthWise conv_dw_3        1 1 conv_pw_2_conv_pw_2_relu conv_dw_3 0=128 1=3 2=1 3=1 4=1 5=0 6=1152 7=128
+BatchNorm        conv_dw_3_bn     1 1 conv_dw_3 conv_dw_3_conv_dw_3_bn 0=128
+Scale            conv_dw_3_bns    1 1 conv_dw_3_conv_dw_3_bn conv_dw_3_conv_dw_3_bns 0=128 1=1
+ReLU             conv_dw_3_relu   1 1 conv_dw_3_conv_dw_3_bns conv_dw_3_conv_dw_3_relu
+Convolution      conv_pw_3        1 1 conv_dw_3_conv_dw_3_relu conv_pw_3 0=128 1=1 2=1 3=1 4=0 5=0 6=16384
+BatchNorm        conv_pw_3_bn     1 1 conv_pw_3 conv_pw_3_conv_pw_3_bn 0=128
+Scale            conv_pw_3_bns    1 1 conv_pw_3_conv_pw_3_bn conv_pw_3_conv_pw_3_bns 0=128 1=1
+ReLU             conv_pw_3_relu   1 1 conv_pw_3_conv_pw_3_bns conv_pw_3_conv_pw_3_relu
+ConvolutionDepthWise conv_dw_4        1 1 conv_pw_3_conv_pw_3_relu conv_dw_4 0=128 1=3 2=1 3=2 4=1 5=0 6=1152 7=128
+BatchNorm        conv_dw_4_bn     1 1 conv_dw_4 conv_dw_4_conv_dw_4_bn 0=128
+Scale            conv_dw_4_bns    1 1 conv_dw_4_conv_dw_4_bn conv_dw_4_conv_dw_4_bns 0=128 1=1
+ReLU             conv_dw_4_relu   1 1 conv_dw_4_conv_dw_4_bns conv_dw_4_conv_dw_4_relu
+Convolution      conv_pw_4        1 1 conv_dw_4_conv_dw_4_relu conv_pw_4 0=256 1=1 2=1 3=1 4=0 5=0 6=32768
+BatchNorm        conv_pw_4_bn     1 1 conv_pw_4 conv_pw_4_conv_pw_4_bn 0=256
+Scale            conv_pw_4_bns    1 1 conv_pw_4_conv_pw_4_bn conv_pw_4_conv_pw_4_bns 0=256 1=1
+ReLU             conv_pw_4_relu   1 1 conv_pw_4_conv_pw_4_bns conv_pw_4_conv_pw_4_relu
+ConvolutionDepthWise conv_dw_5        1 1 conv_pw_4_conv_pw_4_relu conv_dw_5 0=256 1=3 2=1 3=1 4=1 5=0 6=2304 7=256
+BatchNorm        conv_dw_5_bn     1 1 conv_dw_5 conv_dw_5_conv_dw_5_bn 0=256
+Scale            conv_dw_5_bns    1 1 conv_dw_5_conv_dw_5_bn conv_dw_5_conv_dw_5_bns 0=256 1=1
+ReLU             conv_dw_5_relu   1 1 conv_dw_5_conv_dw_5_bns conv_dw_5_conv_dw_5_relu
+Convolution      conv_pw_5        1 1 conv_dw_5_conv_dw_5_relu conv_pw_5 0=256 1=1 2=1 3=1 4=0 5=0 6=65536
+BatchNorm        conv_pw_5_bn     1 1 conv_pw_5 conv_pw_5_conv_pw_5_bn 0=256
+Scale            conv_pw_5_bns    1 1 conv_pw_5_conv_pw_5_bn conv_pw_5_conv_pw_5_bns 0=256 1=1
+ReLU             conv_pw_5_relu   1 1 conv_pw_5_conv_pw_5_bns conv_pw_5_conv_pw_5_relu
+ConvolutionDepthWise conv_dw_6        1 1 conv_pw_5_conv_pw_5_relu conv_dw_6 0=256 1=3 2=1 3=2 4=1 5=0 6=2304 7=256
+BatchNorm        conv_dw_6_bn     1 1 conv_dw_6 conv_dw_6_conv_dw_6_bn 0=256
+Scale            conv_dw_6_bns    1 1 conv_dw_6_conv_dw_6_bn conv_dw_6_conv_dw_6_bns 0=256 1=1
+ReLU             conv_dw_6_relu   1 1 conv_dw_6_conv_dw_6_bns conv_dw_6_conv_dw_6_relu
+Convolution      conv_pw_6        1 1 conv_dw_6_conv_dw_6_relu conv_pw_6 0=512 1=1 2=1 3=1 4=0 5=0 6=131072
+BatchNorm        conv_pw_6_bn     1 1 conv_pw_6 conv_pw_6_conv_pw_6_bn 0=512
+Scale            conv_pw_6_bns    1 1 conv_pw_6_conv_pw_6_bn conv_pw_6_conv_pw_6_bns 0=512 1=1
+ReLU             conv_pw_6_relu   1 1 conv_pw_6_conv_pw_6_bns conv_pw_6_conv_pw_6_relu
+ConvolutionDepthWise conv_dw_7        1 1 conv_pw_6_conv_pw_6_relu conv_dw_7 0=512 1=3 2=1 3=1 4=1 5=0 6=4608 7=512
+BatchNorm        conv_dw_7_bn     1 1 conv_dw_7 conv_dw_7_conv_dw_7_bn 0=512
+Scale            conv_dw_7_bns    1 1 conv_dw_7_conv_dw_7_bn conv_dw_7_conv_dw_7_bns 0=512 1=1
+ReLU             conv_dw_7_relu   1 1 conv_dw_7_conv_dw_7_bns conv_dw_7_conv_dw_7_relu
+Convolution      conv_pw_7        1 1 conv_dw_7_conv_dw_7_relu conv_pw_7 0=512 1=1 2=1 3=1 4=0 5=0 6=262144
+BatchNorm        conv_pw_7_bn     1 1 conv_pw_7 conv_pw_7_conv_pw_7_bn 0=512
+Scale            conv_pw_7_bns    1 1 conv_pw_7_conv_pw_7_bn conv_pw_7_conv_pw_7_bns 0=512 1=1
+ReLU             conv_pw_7_relu   1 1 conv_pw_7_conv_pw_7_bns conv_pw_7_conv_pw_7_relu
+ConvolutionDepthWise conv_dw_8        1 1 conv_pw_7_conv_pw_7_relu conv_dw_8 0=512 1=3 2=1 3=1 4=1 5=0 6=4608 7=512
+BatchNorm        conv_dw_8_bn     1 1 conv_dw_8 conv_dw_8_conv_dw_8_bn 0=512
+Scale            conv_dw_8_bns    1 1 conv_dw_8_conv_dw_8_bn conv_dw_8_conv_dw_8_bns 0=512 1=1
+ReLU             conv_dw_8_relu   1 1 conv_dw_8_conv_dw_8_bns conv_dw_8_conv_dw_8_relu
+Convolution      conv_pw_8        1 1 conv_dw_8_conv_dw_8_relu conv_pw_8 0=512 1=1 2=1 3=1 4=0 5=0 6=262144
+BatchNorm        conv_pw_8_bn     1 1 conv_pw_8 conv_pw_8_conv_pw_8_bn 0=512
+Scale            conv_pw_8_bns    1 1 conv_pw_8_conv_pw_8_bn conv_pw_8_conv_pw_8_bns 0=512 1=1
+ReLU             conv_pw_8_relu   1 1 conv_pw_8_conv_pw_8_bns conv_pw_8_conv_pw_8_relu
+ConvolutionDepthWise conv_dw_9        1 1 conv_pw_8_conv_pw_8_relu conv_dw_9 0=512 1=3 2=1 3=1 4=1 5=0 6=4608 7=512
+BatchNorm        conv_dw_9_bn     1 1 conv_dw_9 conv_dw_9_conv_dw_9_bn 0=512
+Scale            conv_dw_9_bns    1 1 conv_dw_9_conv_dw_9_bn conv_dw_9_conv_dw_9_bns 0=512 1=1
+ReLU             conv_dw_9_relu   1 1 conv_dw_9_conv_dw_9_bns conv_dw_9_conv_dw_9_relu
+Convolution      conv_pw_9        1 1 conv_dw_9_conv_dw_9_relu conv_pw_9 0=512 1=1 2=1 3=1 4=0 5=0 6=262144
+BatchNorm        conv_pw_9_bn     1 1 conv_pw_9 conv_pw_9_conv_pw_9_bn 0=512
+Scale            conv_pw_9_bns    1 1 conv_pw_9_conv_pw_9_bn conv_pw_9_conv_pw_9_bns 0=512 1=1
+ReLU             conv_pw_9_relu   1 1 conv_pw_9_conv_pw_9_bns conv_pw_9_conv_pw_9_relu
+ConvolutionDepthWise conv_dw_10       1 1 conv_pw_9_conv_pw_9_relu conv_dw_10 0=512 1=3 2=1 3=1 4=1 5=0 6=4608 7=512
+BatchNorm        conv_dw_10_bn    1 1 conv_dw_10 conv_dw_10_conv_dw_10_bn 0=512
+Scale            conv_dw_10_bns   1 1 conv_dw_10_conv_dw_10_bn conv_dw_10_conv_dw_10_bns 0=512 1=1
+ReLU             conv_dw_10_relu  1 1 conv_dw_10_conv_dw_10_bns conv_dw_10_conv_dw_10_relu
+Convolution      conv_pw_10       1 1 conv_dw_10_conv_dw_10_relu conv_pw_10 0=512 1=1 2=1 3=1 4=0 5=0 6=262144
+BatchNorm        conv_pw_10_bn    1 1 conv_pw_10 conv_pw_10_conv_pw_10_bn 0=512
+Scale            conv_pw_10_bns   1 1 conv_pw_10_conv_pw_10_bn conv_pw_10_conv_pw_10_bns 0=512 1=1
+ReLU             conv_pw_10_relu  1 1 conv_pw_10_conv_pw_10_bns conv_pw_10_conv_pw_10_relu
+ConvolutionDepthWise conv_dw_11       1 1 conv_pw_10_conv_pw_10_relu conv_dw_11 0=512 1=3 2=1 3=1 4=1 5=0 6=4608 7=512
+BatchNorm        conv_dw_11_bn    1 1 conv_dw_11 conv_dw_11_conv_dw_11_bn 0=512
+Scale            conv_dw_11_bns   1 1 conv_dw_11_conv_dw_11_bn conv_dw_11_conv_dw_11_bns 0=512 1=1
+ReLU             conv_dw_11_relu  1 1 conv_dw_11_conv_dw_11_bns conv_dw_11_conv_dw_11_relu
+Convolution      conv_pw_11       1 1 conv_dw_11_conv_dw_11_relu conv_pw_11 0=512 1=1 2=1 3=1 4=0 5=0 6=262144
+BatchNorm        conv_pw_11_bn    1 1 conv_pw_11 conv_pw_11_conv_pw_11_bn 0=512
+Scale            conv_pw_11_bns   1 1 conv_pw_11_conv_pw_11_bn conv_pw_11_conv_pw_11_bns 0=512 1=1
+ReLU             conv_pw_11_relu  1 1 conv_pw_11_conv_pw_11_bns conv_pw_11_conv_pw_11_relu
+Split            splitncnn_1      1 4 conv_pw_11_conv_pw_11_relu conv_pw_11_conv_pw_11_relu_splitncnn_0 conv_pw_11_conv_pw_11_relu_splitncnn_1 conv_pw_11_conv_pw_11_relu_splitncnn_2 conv_pw_11_conv_pw_11_relu_splitncnn_3
+ConvolutionDepthWise conv_dw_12       1 1 conv_pw_11_conv_pw_11_relu_splitncnn_3 conv_dw_12 0=512 1=3 2=1 3=2 4=1 5=0 6=4608 7=512
+BatchNorm        conv_dw_12_bn    1 1 conv_dw_12 conv_dw_12_conv_dw_12_bn 0=512
+Scale            conv_dw_12_bns   1 1 conv_dw_12_conv_dw_12_bn conv_dw_12_conv_dw_12_bns 0=512 1=1
+ReLU             conv_dw_12_relu  1 1 conv_dw_12_conv_dw_12_bns conv_dw_12_conv_dw_12_relu
+Convolution      conv_pw_12       1 1 conv_dw_12_conv_dw_12_relu conv_pw_12 0=1024 1=1 2=1 3=1 4=0 5=0 6=524288
+BatchNorm        conv_pw_12_bn    1 1 conv_pw_12 conv_pw_12_conv_pw_12_bn 0=1024
+Scale            conv_pw_12_bns   1 1 conv_pw_12_conv_pw_12_bn conv_pw_12_conv_pw_12_bns 0=1024 1=1
+ReLU             conv_pw_12_relu  1 1 conv_pw_12_conv_pw_12_bns conv_pw_12_conv_pw_12_relu
+ConvolutionDepthWise conv_dw_13       1 1 conv_pw_12_conv_pw_12_relu conv_dw_13 0=1024 1=3 2=1 3=1 4=1 5=0 6=9216 7=1024
+BatchNorm        conv_dw_13_bn    1 1 conv_dw_13 conv_dw_13_conv_dw_13_bn 0=1024
+Scale            conv_dw_13_bns   1 1 conv_dw_13_conv_dw_13_bn conv_dw_13_conv_dw_13_bns 0=1024 1=1
+ReLU             conv_dw_13_relu  1 1 conv_dw_13_conv_dw_13_bns conv_dw_13_conv_dw_13_relu
+Convolution      conv_pw_13       1 1 conv_dw_13_conv_dw_13_relu conv_pw_13 0=1024 1=1 2=1 3=1 4=0 5=0 6=1048576
+BatchNorm        conv_pw_13_bn    1 1 conv_pw_13 conv_pw_13_conv_pw_13_bn 0=1024
+Scale            conv_pw_13_bns   1 1 conv_pw_13_conv_pw_13_bn conv_pw_13_conv_pw_13_bns 0=1024 1=1
+ReLU             conv_pw_13_relu  1 1 conv_pw_13_conv_pw_13_bns conv_pw_13_conv_pw_13_relu
+Split            splitncnn_2      1 4 conv_pw_13_conv_pw_13_relu conv_pw_13_conv_pw_13_relu_splitncnn_0 conv_pw_13_conv_pw_13_relu_splitncnn_1 conv_pw_13_conv_pw_13_relu_splitncnn_2 conv_pw_13_conv_pw_13_relu_splitncnn_3
+Convolution      conv_dw_14       1 1 conv_pw_13_conv_pw_13_relu_splitncnn_3 conv_dw_14 0=256 1=1 2=1 3=1 4=0 5=0 6=262144
+ReLU             conv_dw_14/relu  1 1 conv_dw_14 conv_dw_14_conv_dw_14/relu
+Convolution      conv_pw_14       1 1 conv_dw_14_conv_dw_14/relu conv_pw_14 0=256 1=3 2=1 3=2 4=1 5=0 6=589824
+ReLU             conv_pw_14/relu  1 1 conv_pw_14 conv_pw_14_conv_pw_14/relu
+Split            splitncnn_3      1 4 conv_pw_14_conv_pw_14/relu conv_pw_14_conv_pw_14/relu_splitncnn_0 conv_pw_14_conv_pw_14/relu_splitncnn_1 conv_pw_14_conv_pw_14/relu_splitncnn_2 conv_pw_14_conv_pw_14/relu_splitncnn_3
+Convolution      conv_dw_15       1 1 conv_pw_14_conv_pw_14/relu_splitncnn_3 conv_dw_15 0=128 1=1 2=1 3=1 4=0 5=0 6=32768
+ReLU             conv_dw_15/relu  1 1 conv_dw_15 conv_dw_15_conv_dw_15/relu
+Convolution      conv_pw_15       1 1 conv_dw_15_conv_dw_15/relu conv_pw_15 0=256 1=3 2=1 3=2 4=1 5=0 6=294912
+ReLU             conv_pw_15/relu  1 1 conv_pw_15 conv_pw_15_conv_pw_15/relu
+Split            splitncnn_4      1 4 conv_pw_15_conv_pw_15/relu conv_pw_15_conv_pw_15/relu_splitncnn_0 conv_pw_15_conv_pw_15/relu_splitncnn_1 conv_pw_15_conv_pw_15/relu_splitncnn_2 conv_pw_15_conv_pw_15/relu_splitncnn_3
+Convolution      conv_dw_16       1 1 conv_pw_15_conv_pw_15/relu_splitncnn_3 conv_dw_16 0=128 1=1 2=1 3=1 4=0 5=0 6=32768
+ReLU             conv_dw_16/relu  1 1 conv_dw_16 conv_dw_16_conv_dw_16/relu
+Convolution      conv_pw_16       1 1 conv_dw_16_conv_dw_16/relu conv_pw_16 0=256 1=3 2=1 3=2 4=1 5=0 6=294912
+ReLU             conv_pw_16/relu  1 1 conv_pw_16 conv_pw_16_conv_pw_16/relu
+Split            splitncnn_5      1 3 conv_pw_16_conv_pw_16/relu conv_pw_16_conv_pw_16/relu_splitncnn_0 conv_pw_16_conv_pw_16/relu_splitncnn_1 conv_pw_16_conv_pw_16/relu_splitncnn_2
+Convolution      conv_pw_11_mbox_loc 1 1 conv_pw_11_conv_pw_11_relu_splitncnn_2 conv_pw_11_mbox_loc 0=24 1=1 2=1 3=1 4=0 5=1 6=12288
+Permute          conv_pw_11_mbox_loc_perm 1 1 conv_pw_11_mbox_loc conv_pw_11_mbox_loc_perm 0=3
+Flatten          conv_pw_11_mbox_loc_flat 1 1 conv_pw_11_mbox_loc_perm conv_pw_11_mbox_loc_flat
+Convolution      conv_pw_11_mbox_conf 1 1 conv_pw_11_conv_pw_11_relu_splitncnn_1 conv_pw_11_mbox_conf 0=12 1=1 2=1 3=1 4=0 5=1 6=6144
+Permute          conv_pw_11_mbox_conf_perm 1 1 conv_pw_11_mbox_conf conv_pw_11_mbox_conf_perm 0=3
+Flatten          conv_pw_11_mbox_conf_flat 1 1 conv_pw_11_mbox_conf_perm conv_pw_11_mbox_conf_flat
+PriorBox         conv_pw_11_mbox_priorbox 2 1 conv_pw_11_conv_pw_11_relu_splitncnn_0 data_splitncnn_4 conv_pw_11_mbox_priorbox -23300=1,60.000000 -23301=1,105.000000 -23302=2,2.000000,3.000000 3=0.100000 4=0.100000 5=0.200000 6=0.200000 7=1 8=0 9=-233 10=-233 11=-233.000000 12=-233.000000 13=0.500000
+Convolution      conv_pw_13_mbox_loc 1 1 conv_pw_13_conv_pw_13_relu_splitncnn_2 conv_pw_13_mbox_loc 0=24 1=1 2=1 3=1 4=0 5=1 6=24576
+Permute          conv_pw_13_mbox_loc_perm 1 1 conv_pw_13_mbox_loc conv_pw_13_mbox_loc_perm 0=3
+Flatten          conv_pw_13_mbox_loc_flat 1 1 conv_pw_13_mbox_loc_perm conv_pw_13_mbox_loc_flat
+Convolution      conv_pw_13_mbox_conf 1 1 conv_pw_13_conv_pw_13_relu_splitncnn_1 conv_pw_13_mbox_conf 0=12 1=1 2=1 3=1 4=0 5=1 6=12288
+Permute          conv_pw_13_mbox_conf_perm 1 1 conv_pw_13_mbox_conf conv_pw_13_mbox_conf_perm 0=3
+Flatten          conv_pw_13_mbox_conf_flat 1 1 conv_pw_13_mbox_conf_perm conv_pw_13_mbox_conf_flat
+PriorBox         conv_pw_13_mbox_priorbox 2 1 conv_pw_13_conv_pw_13_relu_splitncnn_0 data_splitncnn_3 conv_pw_13_mbox_priorbox -23300=1,105.000000 -23301=1,150.000000 -23302=2,2.000000,3.000000 3=0.100000 4=0.100000 5=0.200000 6=0.200000 7=1 8=0 9=-233 10=-233 11=-233.000000 12=-233.000000 13=0.500000
+Convolution      conv_pw_14_mbox_loc 1 1 conv_pw_14_conv_pw_14/relu_splitncnn_2 conv_pw_14_mbox_loc 0=24 1=1 2=1 3=1 4=0 5=1 6=6144
+Permute          conv_pw_14_mbox_loc_perm 1 1 conv_pw_14_mbox_loc conv_pw_14_mbox_loc_perm 0=3
+Flatten          conv_pw_14_mbox_loc_flat 1 1 conv_pw_14_mbox_loc_perm conv_pw_14_mbox_loc_flat
+Convolution      conv_pw_14_mbox_conf 1 1 conv_pw_14_conv_pw_14/relu_splitncnn_1 conv_pw_14_mbox_conf 0=12 1=1 2=1 3=1 4=0 5=1 6=3072
+Permute          conv_pw_14_mbox_conf_perm 1 1 conv_pw_14_mbox_conf conv_pw_14_mbox_conf_perm 0=3
+Flatten          conv_pw_14_mbox_conf_flat 1 1 conv_pw_14_mbox_conf_perm conv_pw_14_mbox_conf_flat
+PriorBox         conv_pw_14_mbox_priorbox 2 1 conv_pw_14_conv_pw_14/relu_splitncnn_0 data_splitncnn_2 conv_pw_14_mbox_priorbox -23300=1,150.000000 -23301=1,195.000000 -23302=2,2.000000,3.000000 3=0.100000 4=0.100000 5=0.200000 6=0.200000 7=1 8=0 9=-233 10=-233 11=-233.000000 12=-233.000000 13=0.500000
+Convolution      conv_pw_15_mbox_loc 1 1 conv_pw_15_conv_pw_15/relu_splitncnn_2 conv_pw_15_mbox_loc 0=24 1=1 2=1 3=1 4=0 5=1 6=6144
+Permute          conv_pw_15_mbox_loc_perm 1 1 conv_pw_15_mbox_loc conv_pw_15_mbox_loc_perm 0=3
+Flatten          conv_pw_15_mbox_loc_flat 1 1 conv_pw_15_mbox_loc_perm conv_pw_15_mbox_loc_flat
+Convolution      conv_pw_15_mbox_conf 1 1 conv_pw_15_conv_pw_15/relu_splitncnn_1 conv_pw_15_mbox_conf 0=12 1=1 2=1 3=1 4=0 5=1 6=3072
+Permute          conv_pw_15_mbox_conf_perm 1 1 conv_pw_15_mbox_conf conv_pw_15_mbox_conf_perm 0=3
+Flatten          conv_pw_15_mbox_conf_flat 1 1 conv_pw_15_mbox_conf_perm conv_pw_15_mbox_conf_flat
+PriorBox         conv_pw_15_mbox_priorbox 2 1 conv_pw_15_conv_pw_15/relu_splitncnn_0 data_splitncnn_1 conv_pw_15_mbox_priorbox -23300=1,195.000000 -23301=1,240.000000 -23302=2,2.000000,3.000000 3=0.100000 4=0.100000 5=0.200000 6=0.200000 7=1 8=0 9=-233 10=-233 11=-233.000000 12=-233.000000 13=0.500000
+Convolution      conv_pw_16_mbox_loc 1 1 conv_pw_16_conv_pw_16/relu_splitncnn_2 conv_pw_16_mbox_loc 0=24 1=1 2=1 3=1 4=0 5=1 6=6144
+Permute          conv_pw_16_mbox_loc_perm 1 1 conv_pw_16_mbox_loc conv_pw_16_mbox_loc_perm 0=3
+Flatten          conv_pw_16_mbox_loc_flat 1 1 conv_pw_16_mbox_loc_perm conv_pw_16_mbox_loc_flat
+Convolution      conv_pw_16_mbox_conf 1 1 conv_pw_16_conv_pw_16/relu_splitncnn_1 conv_pw_16_mbox_conf 0=12 1=1 2=1 3=1 4=0 5=1 6=3072
+Permute          conv_pw_16_mbox_conf_perm 1 1 conv_pw_16_mbox_conf conv_pw_16_mbox_conf_perm 0=3
+Flatten          conv_pw_16_mbox_conf_flat 1 1 conv_pw_16_mbox_conf_perm conv_pw_16_mbox_conf_flat
+PriorBox         conv_pw_16_mbox_priorbox 2 1 conv_pw_16_conv_pw_16/relu_splitncnn_0 data_splitncnn_0 conv_pw_16_mbox_priorbox -23300=1,240.000000 -23301=1,285.000000 -23302=2,2.000000,3.000000 3=0.100000 4=0.100000 5=0.200000 6=0.200000 7=1 8=0 9=-233 10=-233 11=-233.000000 12=-233.000000 13=0.500000
+Concat           mbox_loc         5 1 conv_pw_11_mbox_loc_flat conv_pw_13_mbox_loc_flat conv_pw_14_mbox_loc_flat conv_pw_15_mbox_loc_flat conv_pw_16_mbox_loc_flat mbox_loc 0=0
+Concat           mbox_conf        5 1 conv_pw_11_mbox_conf_flat conv_pw_13_mbox_conf_flat conv_pw_14_mbox_conf_flat conv_pw_15_mbox_conf_flat conv_pw_16_mbox_conf_flat mbox_conf 0=0
+Concat           mbox_priorbox    5 1 conv_pw_11_mbox_priorbox conv_pw_13_mbox_priorbox conv_pw_14_mbox_priorbox conv_pw_15_mbox_priorbox conv_pw_16_mbox_priorbox mbox_priorbox 0=1
+Reshape          mbox_conf_reshape 1 1 mbox_conf mbox_conf_reshape 0=2 1=-1 2=0 3=0
+Softmax          mbox_conf_softmax 1 1 mbox_conf_reshape mbox_conf_softmax 0=1
+Flatten          mbox_conf_flatten 1 1 mbox_conf_softmax mbox_conf_flatten
+DetectionOutput  detection_out    3 1 mbox_loc mbox_conf_flatten mbox_priorbox detection_out 0=2 1=0.100000 2=400 3=200 4=0.010000
